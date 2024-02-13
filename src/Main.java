@@ -8,10 +8,6 @@ public class Main {
         checkSumSing();
         printColor();
         compareNumbers();
-        dz1();
-        dz2();
-        dz3();
-        dz4();
     }
 
     static void prinThreeWords() {
@@ -55,34 +51,6 @@ public class Main {
 
     }
 
-    static void dz1() {
-        int a = 3;
-        int b = 7;
-        boolean c = (((a + b) >= 10) && ((a + b) <= 20));
-        System.out.println(c);
-    }
-
-    static void dz2() {
-        int a = 7;
-        if (a >= 0) {
-            System.out.println("Положительное число");
-        } else {
-            System.out.println("Отрицательное число");
-        }
-    }
-
-    static void dz3() {
-        int e = 3;
-        if (e > 0){
-            System.out.println("false");
-        } else if (e < 0) {
-            System.out.println("true");
-        }
-    }
-
-    static void dz4(int ) {
-
-    }
 
 
 
