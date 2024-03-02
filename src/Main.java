@@ -1,147 +1,43 @@
-import java.util.Scanner;
-
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //1
-        checkSum(7, 3);
-        //2
-        numberType(1);
-        //3
-        isNegative(-1);
-        //4
-        String str = "My name is Ruslan!:)";
-        int count = 3;
-        nameStrings(str, count);
-        //5
-        isLeapYear(1993);
-        //6
-        int[] array = {1, 1, 0, 0, 1, 0, 1, 1, 0, 0};
-        niceArray(array);
-        System.out.println("result:");
-        for (int i = 0; i < array.length; i++) {
-            System.out.print(array[i] + " ");
-        }
+        //1. Создать класс "Сотрудник" с полями: ФИО, должность, email, телефон, зарплата, возраст.
+        //Конструктор класса должен заполнять эти поля при создании объекта.
+        //Внутри класса «Сотрудник» написать метод, который выводит информацию об объекте в консоль.
 
-        //7
-        int[] array1 = new int[100];
-        fillArray(array1);
-        System.out.println("result:");
-        for (int i = 0; i < array1.length; i++) {
-            System.out.print(array1[i] + " ");
-        }
-        //8
-        int[] arr = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
-        massivNumbers(arr);
-        for (int num : arr) {
-            System.out.print(num + " ");
-        }
-        //9
-        int size = 5;
-        int[][] matrix = loveMatrix(size);
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
-                System.out.print(matrix[i][j] + " ");
-            }
+        Сотрудник employee = new Сотрудник("Морозов Руслан Николаевич", "Директор", "Boss@gmail.com", "+7(777)7777777", "7777777$", "31");
+        employee.displayInfo();
+
+        //2. Создать массив из 5 сотрудников.
+        //Пример:
+        //// вначале объявляем массив объектов
+        //Person[] persArray = new Person[5];
+        //// потом для каждой ячейки массива задаем объект
+        //persArray[0] = new Person("Ivanov Ivan", "Engineer",
+        //               "ivivan@mailbox.com", "892312312", 30000, 30);
+        //persArray[1] = new Person(...);
+        //...
+        //persArray[4] = new Person(...);
+
+        Employee[] employeesArray = new Employee[5];
+        employeesArray[0] = new Employee("Иванов Иван Иванович", "Дворник", "x@example.com", "123123123", "999999", "30");
+        employeesArray[1] = new Employee("Василий Васильев Васильевич", "Слесарь", "xx@example.com", "234234234", "40000", "25");
+        employeesArray[2] = new Employee("Александр Александров Александрович", "Депутат", "xxx@example.com", "345345345", "60000", "35");
+        employeesArray[3] = new Employee("Петя Петров Петрович", "Учитель", "xxxx@example.com", "456456456", "45000", "28");
+        employeesArray[4] = new Employee("Олег Олегов Олегович", "Монтажник", "xxxxx@example.com", "567567567", "55000", "32");
+
+        for (Employee employee1 : employeesArray) {
+            employee1.displayInfo();
             System.out.println();
         }
-        //10
-        int len = 5;
-        int initialValue = 10;
-        int[] array2 = loveArray(len, initialValue);
-        for (int i = 0; i < array2.length; i++) {
-            System.out.println(array2[i]);
-        }
 
+        //3. Создать класс Park с внутренним классом, с помощью объектов которого можно хранить информацию об аттракционах, времени их работы и стоимости.
 
+        Park myPark = new Park("Wonderland");
+        Park.Attraction rollerCoaster = myPark.new Attraction("Room Deads", "10:00 ", "18:00 ", 100.00);
+        rollerCoaster.displayAttractionInfo();
     }
-
-    //1
-    public static boolean checkSum(int a, int b) {
-        int sum = a + b;
-        return sum >= 10 && sum <= 20;
-    }
-
-    //2
-    public static void numberType(int num) {
-        if (num >= 0) {
-            System.out.println("Число положительное");
-        } else {
-            System.out.println("Число отрицательное");
-        }
-    }
-
-    //3
-    public static boolean isNegative(int num) {
-        return num < 0;
-    }
-
-    //4
-    public static void nameStrings(String str, int count) {
-        for (int i = 0; i < count; i++) {
-            System.out.println(str);
-        }
-    }
-
-    //5
-    public static boolean isLeapYear(int year) {
-        return (year % 4 == 0 && year % 100 != 0) || year % 400 == 0;
-    }
-
-    //6
-    public static void niceArray(int[] array) {
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] == 0) {
-                array[i] = 1;
-            } else {
-                array[i] = 0;
-            }
-        }
-
-    }
-
-    //7
-    public static void fillArray(int[] array1) {
-        for (int i = 0; i < array1.length; i++) {
-            array1[i] = i + 1;
-        }
-    }
-
-    //8
-    public static void massivNumbers(int[] arr) {
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] < 6) {
-                arr[i] *= 2;
-            }
-        }
-    }
-
-    //9
-    public static int[][] loveMatrix(int size) {
-        int[][] matrix = new int[size][size];
-            for (int i = 0; i < size; i++) {
-                matrix[i][i] = 1;
-            } return matrix;
-    }
-
-    //10
-    public static int[] loveArray(int len, int loveValue) {
-        int[] array2 = new int[len];
-            for (int i = 0; i < len; i++) {
-                array2[i] = loveValue;
-            } return array2;
-    }
-
 
 }
-
-
-
-
-
-
-
 
 
 
